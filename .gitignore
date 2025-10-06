@@ -1,0 +1,43 @@
+# dependencies
+node_modules
+
+# sst
+.sst
+.build
+
+# misc
+.DS_Store
+
+# local env files
+.env.*
+!.env.local
+
+.idea
+
+tmp
+
+cdk.context.json
+
+
+.env-shared-*
+/.sst.config.1684950561589.mjs
+
+# bloat
+**/.idea
+**/.pytest_cache
+**/__pycache__
+**/tmp
+**/.ipynb_checkpoints
+**/.DS_Store
+
+# sensitive
+**/config.yml
+**/config.json
+**/.aws
+**/*.sql
+**/*.csv
+
+tmp
+sst-remove
+.aider*
+.env

@@ -1,0 +1,11 @@
+data
+**/*.db
+books/db
+**/*.rar
+**/*.sql
+**/.ipynb_checkpoints
+**/.pytest_cache
+mock_entries.json
+haystack
+**/*.parquet
+*.ipynb

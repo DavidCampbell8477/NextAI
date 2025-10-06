@@ -1,0 +1,45 @@
+{
+  "name": "gnothi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "AWS_PROFILE=gnothiadmin sst dev",
+    "build": "AWS_PROFILE=gnothiadmin sst build",
+    "deploy:staging": "AWS_PROFILE=gnothiadmin sst deploy --stage=staging",
+    "deploy:prod": "AWS_PROFILE=gnothiadmin sst deploy --stage=prod",
+    "deploy:prod:web": "AWS_PROFILE=gnothiadmin sst deploy Web --stage=prod",
+    "deploy:shared-dev": "AWS_PROFILE=gnothiadmin sst deploy --stage=shared-dev",
+    "remove": "AWS_PROFILE=gnothiadmin sst remove",
+    "console": "AWS_PROFILE=gnothiadmin sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "AWS_REGION=us-east-1 AWS_PROFILE=gnothiadmin sst bind -- vitest run",
+    "test:gendata": "AWS_REGION=us-east-1 AWS_PROFILE=gnothiadmin sst bind -- vitest run services/tests/setup_mock.spec.ts",
+    "migrate:generate": "npx drizzle-kit generate:pg --schema services/data/schemas --out services/data/migrate/rest",
+    "v0:migrate": "AWS_REGION=us-east-1 AWS_PROFILE=gnothiadmin sst bind vitest run services/data/migrate/v0/migrate.spec.ts --stage=legion4",
+    "web:test": "playwright test --project=chromium --headed",
+    "web:test:specific": "playwright test --project=chromium --headed tests/premium.spec.ts"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.421.0",
+    "@playwright/test": "^1.38.1",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/lodash": "^4.14.199",
+    "aws-cdk-lib": "2.142.1",
+    "constructs": "10.3.0",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.30.10",
+    "drizzle-kit": "^0.21.4",
+    "postgres": "^3.4.4",
+    "sst": "2.42.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "openai": "^4.11.0"
+  },
+  "workspaces": [
+    "services",
+    "schemas",
+    "web"
+  ]
+}

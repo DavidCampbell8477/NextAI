@@ -1,0 +1,11 @@
+data
+**/*.db
+books/db
+**/*.rar
+**/*.sql
+**/.ipynb*
+**/.pytest_cache
+mock_entries.json
+**/test_*.py
+*.parquet
+**/__pycache__

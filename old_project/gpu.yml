@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  gpu:
+    build:
+      context: .
+      dockerfile: ./gpu.dockerfile
+    container_name: jgpu
+    restart: unless-stopped
+    volumes:
+      - ./storage:/storage
+      #- ./gpu:/paperspace
+      #- ./common:/paperspace/common
+      #- ./ml-tools:/ml-tools
+    device_requests:
+      - capabilities:
+          - "gpu"
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "3"
